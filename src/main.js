@@ -147,15 +147,15 @@ module.exports.Transaction = Transaction;
 const myKey = ec.keyFromPrivate('cs247fe316527784096af0e5a73814d4083467125f96a61b4e9d4c5de5c26481');
 const myWalletAddress = myKey.getPublic('hex');
 
-let savjeeCoin = new Blockchain();
+let main = new Blockchain();
 
 const tx1 = new Transaction(myWalletAddress, 'public key goes here', 10);
 tx1.signTransaction(myKey);
-savjeeCoin.addTransaction(tx1);
+main.addTransaction(tx1);
 
 console.log('\nStarting the miner. . . ');
-savjeeCoin.minePendingTransactions(myWalletAddress);
+main.minePendingTransactions(myWalletAddress);
 
-console.log('\n Balance of xavier is', savjeeCoin.getBalanceOfAddress(myWalletAddress));
+console.log('\n Balance of xavier is', main.getBalanceOfAddress(myWalletAddress));
 
-console.log('Is chain valid?', savjeeCoin.isChainValid());
+console.log('Is chain valid?', main.isChainValid());

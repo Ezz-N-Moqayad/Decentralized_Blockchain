@@ -141,31 +141,8 @@ class Blockchain {
     }
 }
 
-function saveJSON(filename = "") {
-    return file.writeFileSync(filename, JSON.stringify(blockChainCoin, null, 2));
-}
-
-
-blockChainCoin.addBlock(new Block(4, "1/03/2022", { amount: 10 }));
-
-blockChainCoin.addBlock(new Block(5, "2/03/2022", { amount: 20 }));
-
-blockChainCoin.addBlock(new Block(6, "3/03/2022", { amount: 30 }));
-
-blockChainCoin.addBlock(new Block(7, "4/03/2022", { amount: 40 }));
-
-blockChainCoin.addBlock(new Block(8, "5/03/2022", { amount: 50 }));
-
-blockChainCoin.addBlock(new Block(9, "6/03/2022", { amount: 60 }));
-
-blockChainCoin.addBlock(new Block(10, "7/03/2022", { amount: 70 }));
-
-saveJSON("./src/dataSaved.json", data);
-console.log(loadJSON('./src/dataSaved.json'));
-
 module.exports.Blockchain = Blockchain;
 module.exports.Transaction = Transaction;
-
 
 const myKey = ec.keyFromPrivate('cs247fe316527784096af0e5a73814d4083467125f96a61b4e9d4c5de5c26481');
 const myWalletAddress = myKey.getPublic('hex');
